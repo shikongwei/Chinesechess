@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/img/arm">
+        <file>arm.jpg</file>
+    </qresource>
+    <qresource prefix="/img/ico">
+        <file>run.jpg</file>
+        <file>set.jpg</file>
+        <file>target.jpg</file>
+        <file>run.png</file>
+        <file>set.png</file>
+        <file>target.png</file>
+        <file>config_s.png</file>
+        <file>run_s.png</file>
+        <file>target_s.png</file>
+        <file>target_s_1.png</file>
+    </qresource>
+    <qresource prefix="/img/chess">
+        <file>Chess/board.bmp</file>
+        <file>Chess/chessboard.bmp</file>
+        <file>Chess/chessmen.png</file>
+        <file>forchess.jpg</file>
+    </qresource>
+</RCC>

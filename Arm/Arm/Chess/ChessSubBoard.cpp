@@ -1,0 +1,53 @@
+#include "ChessSubBoard.h"
+
+ChessSubBoard::ChessSubBoard()
+{
+    const enum CHESS initial_chess_location[10][9]={
+        {B_CAR,B_HORSE,B_MINISTER,B_IMPERIAL,B_KING,B_IMPERIAL,B_MINISTER,B_HORSE,B_CAR},
+        {NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS},
+        {NOCHESS,B_CANON,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,B_CANON,NOCHESS},
+        {B_PAWN,NOCHESS,B_PAWN,NOCHESS,B_PAWN,NOCHESS,B_PAWN,NOCHESS,B_PAWN},
+        {NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS},
+                //楚河                       汉界//
+        {NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS},
+        {R_PAWN,NOCHESS,R_PAWN,NOCHESS,R_PAWN,NOCHESS,R_PAWN,NOCHESS,R_PAWN},
+        {NOCHESS,R_CANON,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,R_CANON,NOCHESS},
+        {NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS},
+        {R_CAR,R_HORSE,R_MINISTER,R_IMPERIAL,R_KING,R_IMPERIAL,R_MINISTER,R_HORSE,R_CAR}
+        };
+    memcpy(chess_location,initial_chess_location,sizeof(chess_location));
+    CurrentPoint=OurPoint(-1,-1);
+    chess_num=32;
+    needupdate=false;
+    checkVision=true;
+    toSee=true;
+
+}
+enum CHESS ChessSubBoard::getStatus(OurPoint point)
+{
+    return chess_location[point.y][point.x];
+}
+bool ChessSubBoard::setChess(OurPoint point,enum CHESS chess)
+{
+    chess_location[point.y][point.x]=chess;
+    return true;
+}
+void ChessSubBoard::resetChess()
+{
+    const enum CHESS initial_chess_location[10][9]={
+        {B_CAR,B_HORSE,B_MINISTER,B_IMPERIAL,B_KING,B_IMPERIAL,B_MINISTER,B_HORSE,B_CAR},
+        {NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS},
+        {NOCHESS,B_CANON,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,B_CANON,NOCHESS},
+        {B_PAWN,NOCHESS,B_PAWN,NOCHESS,B_PAWN,NOCHESS,B_PAWN,NOCHESS,B_PAWN},
+        {NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS},
+                //楚河                       汉界//
+        {NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS},
+        {R_PAWN,NOCHESS,R_PAWN,NOCHESS,R_PAWN,NOCHESS,R_PAWN,NOCHESS,R_PAWN},
+        {NOCHESS,R_CANON,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,R_CANON,NOCHESS},
+        {NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS,NOCHESS},
+        {R_CAR,R_HORSE,R_MINISTER,R_IMPERIAL,R_KING,R_IMPERIAL,R_MINISTER,R_HORSE,R_CAR}
+        };
+    memcpy(chess_location,initial_chess_location,sizeof(chess_location));
+    CurrentPoint=OurPoint(-1,-1);
+}
+
